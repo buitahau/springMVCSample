@@ -1,7 +1,7 @@
 package com.spring.project.manager.utils.parsing;
 
-import com.spring.project.common.RoleDTO;
-import com.spring.project.common.UserDTO;
+import com.spring.project.common.dto.RoleDTO;
+import com.spring.project.common.dto.UserDTO;
 import com.spring.project.dao.entity.RoleEntity;
 import com.spring.project.dao.entity.UserEntity;
 
@@ -34,6 +34,7 @@ public class UserParsingUtil {
 		entity.setCreatedDate(dto.getCreatedDate());
 		entity.setStatus(dto.getStatus());
 		entity.setRoles(roles);
+		entity.setUserName(dto.getUserName());
 		return entity;
 	}
 

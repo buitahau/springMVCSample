@@ -1,6 +1,6 @@
 package com.spring.project.manager.utils.parsing;
 
-import com.spring.project.common.RoleDTO;
+import com.spring.project.common.dto.RoleDTO;
 import com.spring.project.dao.entity.RoleEntity;
 
 /**

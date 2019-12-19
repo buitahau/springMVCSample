@@ -1,7 +1,7 @@
 package com.spring.project.web.service;
 
-import com.spring.project.common.RoleDTO;
-import com.spring.project.common.UserDTO;
+import com.spring.project.common.dto.RoleDTO;
+import com.spring.project.common.dto.UserDTO;
 import com.spring.project.manager.UserManager;
 import com.spring.project.web.constants.Constants;
 import com.spring.project.web.security.MyUserPrincipal;

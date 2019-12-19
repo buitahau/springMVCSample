@@ -1,8 +1,8 @@
 package com.spring.project.manager.impl;
 
 import com.spring.project.manager.UserManager;
-import com.spring.project.common.RoleDTO;
-import com.spring.project.common.UserDTO;
+import com.spring.project.common.dto.RoleDTO;
+import com.spring.project.common.dto.UserDTO;
 import com.spring.project.dao.UserDao;
 import com.spring.project.dao.entity.RoleEntity;
 import com.spring.project.dao.entity.UserEntity;
@@ -10,6 +10,7 @@ import com.spring.project.manager.utils.parsing.UserParsingUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import java.util.List;
 /**
  * Created by HauKute on 3/28/2019.
  */
+@Transactional
 @Service
 public class UserManagerImpl implements UserManager {
 

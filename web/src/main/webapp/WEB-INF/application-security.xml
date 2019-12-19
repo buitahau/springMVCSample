@@ -34,6 +34,9 @@
     <beans:bean id="myUserDetailsService"
                 class="com.spring.project.web.service.UserDetailsServiceImpl" />
 
-    <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+    <beans:bean id="passwordEncoder"
+                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
+    <beans:bean id="startupListener"
+                class="com.spring.project.web.listener.StartupListener"/>
 </beans:beans>

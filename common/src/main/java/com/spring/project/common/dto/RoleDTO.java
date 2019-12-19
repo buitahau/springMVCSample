@@ -1,4 +1,4 @@
-package com.spring.project.common;
+package com.spring.project.common.dto;
 
 import java.io.Serializable;
 
