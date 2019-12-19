@@ -13,15 +13,16 @@ public class UserDTO implements Serializable {
 	private String userName;
 	private String password;
 	private Timestamp createdDate;
-	private Integer status;
+	private int status;
 	private List<RoleDTO> roles;
 
 	public UserDTO() {
 
 	}
 
-	public UserDTO(long userId, String userName, String password,
-			Integer status, Timestamp createdDate, List<RoleDTO> roles) {
+	public UserDTO(
+					long userId, String userName, String password, int status,
+					Timestamp createdDate, List<RoleDTO> roles) {
 
 		this.userId = userId;
 		this.userName = userName;
@@ -71,12 +72,12 @@ public class UserDTO implements Serializable {
 		this.createdDate = createdDate;
 	}
 
-	public Integer getStatus() {
+	public int getStatus() {
 
 		return status;
 	}
 
-	public void setStatus(Integer status) {
+	public void setStatus(int status) {
 
 		this.status = status;
 	}

@@ -11,7 +11,19 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class UserDaoImpl extends GenericHibernateDao<UserEntity> implements UserDao {
+public class UserDaoImpl extends GenericHibernateDao<UserEntity>
+                implements UserDao {
+
+    public int countAll() {
+
+        StringBuilder builder = new StringBuilder(
+                        "Select count(*) from UserEntity");
+
+        Query query = getCurrentSession().createQuery(builder.toString());
+
+        return Integer.valueOf(query.uniqueResult().toString());
+    }
+
     /**
      * Find user by userName
      * @param userName
@@ -20,7 +32,7 @@ public class UserDaoImpl extends GenericHibernateDao<UserEntity> implements User
     public UserEntity loadUserByUsername(String userName) {
 
         StringBuilder builder = new StringBuilder(
-                        "from UserEntity where " + "userName like :user");
+                        "from UserEntity where userName like :user");
 
         Query query = getCurrentSession().createQuery(
                         builder.toString()).setParameter("user", userName);

@@ -7,5 +7,9 @@ import com.spring.project.common.UserDTO;
  */
 public interface UserManager {
 
+	UserDTO addUser(UserDTO userDTO);
+
+	int countAll();
+
 	UserDTO loadUserByUsername(String userName);
 }

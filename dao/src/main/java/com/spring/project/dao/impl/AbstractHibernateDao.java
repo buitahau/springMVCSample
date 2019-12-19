@@ -15,7 +15,7 @@ public abstract class AbstractHibernateDao<T extends Serializable> {
 	private Class<T> clazz;
 
 	@Autowired
-	SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 
 	public void setClazz(Class<T> clazz) {
 

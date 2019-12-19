@@ -27,7 +27,7 @@ public class UserEntity implements Serializable{
     private Timestamp createdDate;
 
     @Column(name = "status")
-    private Integer status;
+    private int status;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name = "User_Role",
@@ -80,7 +80,7 @@ public class UserEntity implements Serializable{
         this.createdDate = createdDate;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
 
         this.status = status;
     }
@@ -100,7 +100,7 @@ public class UserEntity implements Serializable{
         return createdDate;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
 
         return status;
     }
@@ -128,7 +128,7 @@ public class UserEntity implements Serializable{
             return false;
         if (!createdDate.equals(that.createdDate))
             return false;
-        return status.equals(that.status);
+        return status == that.status;
     }
 
     @Override
@@ -138,7 +138,7 @@ public class UserEntity implements Serializable{
         result = 31 * result + userName.hashCode();
         result = 31 * result + password.hashCode();
         result = 31 * result + createdDate.hashCode();
-        result = 31 * result + status.hashCode();
+        result = 31 * result + status;
         return result;
     }
 }

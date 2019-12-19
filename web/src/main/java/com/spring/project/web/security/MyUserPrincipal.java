@@ -10,8 +10,7 @@ import java.util.List;
  */
 public class MyUserPrincipal extends User {
 
-	public MyUserPrincipal(
-					String username, String password,
+	public MyUserPrincipal(String username, String password,
 					List<GrantedAuthority> authorities) {
 
 		super(username, password, authorities);

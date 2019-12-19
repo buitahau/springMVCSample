@@ -12,7 +12,16 @@
     <artifactId>manager</artifactId>
     <version>${project.parent.version}</version>
 
+    <properties>
+        <springframework-version>5.1.5.RELEASE</springframework-version>
+    </properties>
+
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${springframework-version}</version>
+        </dependency>
         <dependency>
             <groupId>com.spring</groupId>
             <artifactId>dao</artifactId>

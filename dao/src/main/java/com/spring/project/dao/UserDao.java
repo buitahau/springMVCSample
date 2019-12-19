@@ -7,5 +7,7 @@ import com.spring.project.dao.entity.UserEntity;
  */
 public interface UserDao extends IGenericDao<UserEntity> {
 
+	int countAll();
+
 	UserEntity loadUserByUsername(String userName);
 }

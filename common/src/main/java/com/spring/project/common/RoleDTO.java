@@ -10,6 +10,10 @@ public class RoleDTO implements Serializable {
 	private long roleId;
 	private String role;
 
+	public RoleDTO() {
+
+	}
+
 	public RoleDTO(long roleId, String role) {
 
 		this.roleId = roleId;

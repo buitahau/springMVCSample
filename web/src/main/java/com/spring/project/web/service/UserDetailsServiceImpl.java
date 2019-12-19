@@ -3,6 +3,7 @@ package com.spring.project.web.service;
 import com.spring.project.common.RoleDTO;
 import com.spring.project.common.UserDTO;
 import com.spring.project.manager.UserManager;
+import com.spring.project.web.constants.Constants;
 import com.spring.project.web.security.MyUserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,7 +28,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String userName)
+                throws UsernameNotFoundException {
 
         MyUserPrincipal result = null;
         UserDTO userDTO = userManager.loadUserByUsername(userName);
@@ -46,12 +48,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (roles != null && roles.size() > 0) {
             for (RoleDTO roleDTO : roles) {
                 authorityList.add(
-                                new SimpleGrantedAuthority(roleDTO.getRole()));
+                    new SimpleGrantedAuthority(roleDTO.getRole()));
             }
         }
-        authorityList.add(new SimpleGrantedAuthority(ROLE_DEFAULT));
+        authorityList.add(new SimpleGrantedAuthority(
+                        Constants.ROLE_USER_DEFAULT));
         return authorityList;
     }
 
-    private static final String ROLE_DEFAULT = "USER";
 }
