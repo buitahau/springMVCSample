@@ -21,6 +21,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <mysql-version>8.0.15</mysql-version>
         <sitemesh-version>2.4.2</sitemesh-version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <dependencies>
@@ -81,5 +82,11 @@
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
     </dependencies>
 </project>
