@@ -34,7 +34,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
-
+		userManager.findById(4);
 		return "common/login";
 	}
 

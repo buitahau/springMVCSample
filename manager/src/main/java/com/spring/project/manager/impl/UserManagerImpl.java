@@ -46,6 +46,12 @@ public class UserManagerImpl implements UserManager {
 		return userDao.countAll();
 	}
 
+	public UserDTO findById(long userId) {
+
+		UserEntity u = userDao.findOneBySerializeId(userId);
+		return UserParsingUtil.parseFromEntityToDto(u);
+	}
+
 	public UserDTO loadUserByUsername(String userName) {
 
 		UserDTO userDTO = null;

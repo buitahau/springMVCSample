@@ -2,6 +2,7 @@ package com.spring.project.dao.impl;
 
 import com.spring.project.dao.UserDao;
 import com.spring.project.dao.entity.UserEntity;
+import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserDaoImpl extends GenericHibernateDao<UserEntity>
                 implements UserDao {
+
+    public UserDaoImpl(
+                    Class<UserEntity> clazz, SessionFactory sessionFactory) {
+
+        super(clazz, sessionFactory);
+    }
 
     public int countAll() {
 

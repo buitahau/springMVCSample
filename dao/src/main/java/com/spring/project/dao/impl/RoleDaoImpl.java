@@ -2,6 +2,7 @@ package com.spring.project.dao.impl;
 
 import com.spring.project.dao.RoleDao;
 import com.spring.project.dao.entity.RoleEntity;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,4 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class RoleDaoImpl extends GenericHibernateDao<RoleEntity>
 				implements RoleDao {
 
+	public RoleDaoImpl(
+					Class<RoleEntity> clazz, SessionFactory sessionFactory) {
+
+		super(clazz, sessionFactory);
+	}
 }

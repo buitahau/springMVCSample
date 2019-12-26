@@ -10,6 +10,8 @@ public interface IGenericDao<T extends Serializable> {
 
 	T findOne(final long id);
 
+	T findOneBySerializeId(long id);
+
 	void create(final T entity);
 
 	void update(final T entity);

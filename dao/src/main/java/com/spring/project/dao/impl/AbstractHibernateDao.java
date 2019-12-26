@@ -2,24 +2,25 @@ package com.spring.project.dao.impl;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by HauKute on 4/21/2019.
  */
+@Transactional
 public abstract class AbstractHibernateDao<T extends Serializable> {
 
 	private Class<T> clazz;
 
-	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void setClazz(Class<T> clazz) {
+	protected AbstractHibernateDao(Class<T> clazz, SessionFactory sessionFactory) {
 
 		this.clazz = clazz;
+		this.sessionFactory = sessionFactory;
 	}
 
 	protected final Session getCurrentSession() {
@@ -29,7 +30,13 @@ public abstract class AbstractHibernateDao<T extends Serializable> {
 
 	public T findOne(long id) {
 
-		return (T) getCurrentSession().get(clazz, id);
+		return (T) getCurrentSession().get(clazz.getName(), id);
+	}
+
+	@SuppressWarnings("unchecked")
+	public T findOneBySerializeId(long id){
+
+		return getCurrentSession().get(clazz, id);
 	}
 
 	public List<T> findAll() {

@@ -88,5 +88,43 @@
             <version>${log4j.version}</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.6.9</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>2.10.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>5.4.10.Final</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.5</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.4.2</version>
+        </dependency>
+
     </dependencies>
 </project>

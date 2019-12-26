@@ -39,6 +39,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             result = new MyUserPrincipal(userDTO.getUserName(),
                             userDTO.getPassword(), authorityList);
         }
+
+        userManager.findById(4);
         return result;
     }
 

@@ -1,6 +1,9 @@
 package com.spring.project.dao.impl;
 
 import com.spring.project.dao.IGenericDao;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
@@ -14,4 +17,10 @@ import java.io.Serializable;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class GenericHibernateDao<T extends Serializable>
 				extends AbstractHibernateDao<T> implements IGenericDao<T> {
+
+	public GenericHibernateDao(
+					Class<T> clazz, SessionFactory sessionFactory) {
+
+		super(clazz, sessionFactory);
+	}
 }
