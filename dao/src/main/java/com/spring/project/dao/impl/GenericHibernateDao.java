@@ -14,4 +14,9 @@ import java.io.Serializable;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class GenericHibernateDao<T extends Serializable>
 				extends AbstractHibernateDao<T> implements IGenericDao<T> {
+
+	public GenericHibernateDao(Class<T> clazz) {
+
+		super(clazz);
+	}
 }

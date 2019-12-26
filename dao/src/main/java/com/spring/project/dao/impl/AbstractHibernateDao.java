@@ -4,20 +4,22 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by HauKute on 4/21/2019.
  */
+@Transactional
 public abstract class AbstractHibernateDao<T extends Serializable> {
 
-	private Class<T> clazz;
+	private final Class<T> clazz;
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void setClazz(Class<T> clazz) {
+	protected AbstractHibernateDao(Class<T> clazz) {
 
 		this.clazz = clazz;
 	}
@@ -27,25 +29,24 @@ public abstract class AbstractHibernateDao<T extends Serializable> {
 		return sessionFactory.getCurrentSession();
 	}
 
-	public T findOne(long id) {
+	protected Class<? extends T> getEntityClass() {
 
-		return (T) getCurrentSession().get(clazz, id);
+		return this.clazz;
 	}
 
-	public List<T> findAll() {
+	protected String getEntityName() {
 
-		return getCurrentSession().createQuery(
-						"from " + clazz.getName()).list();
+		return this.getEntityClass().getName();
+	}
+
+	public void clear() {
+
+		getCurrentSession().clear();
 	}
 
 	public void create(T entity) {
 
 		getCurrentSession().persist(entity);
-	}
-
-	public void update(T entity) {
-
-		getCurrentSession().merge(entity);
 	}
 
 	public void delete(T entity) {
@@ -57,5 +58,32 @@ public abstract class AbstractHibernateDao<T extends Serializable> {
 
 		T entity = findOne(entityId);
 		delete(entity);
+	}
+
+	public List<T> findAll() {
+
+		return getCurrentSession().createQuery(
+						"from " + this.getEntityName()).list();
+	}
+
+	public T findOne(long id) {
+
+		return (T) getCurrentSession().get(clazz, id);
+	}
+
+	public void flush() {
+
+		getCurrentSession().flush();
+	}
+
+	public void update(T entity) {
+
+		getCurrentSession().merge(entity);
+	}
+
+	public void saveOrUpdate(T instanceOrEntity) {
+
+		getCurrentSession().saveOrUpdate(
+						this.getEntityName(), instanceOrEntity);
 	}
 }

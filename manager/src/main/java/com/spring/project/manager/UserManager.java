@@ -11,5 +11,7 @@ public interface UserManager {
 
 	int countAll();
 
+	UserDTO findById(long userId);
+
 	UserDTO loadUserByUsername(String userName);
 }

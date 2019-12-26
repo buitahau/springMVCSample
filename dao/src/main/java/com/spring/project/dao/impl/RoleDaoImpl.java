@@ -13,4 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class RoleDaoImpl extends GenericHibernateDao<RoleEntity>
 				implements RoleDao {
 
+	public RoleDaoImpl() {
+
+		super(RoleEntity.class);
+	}
 }

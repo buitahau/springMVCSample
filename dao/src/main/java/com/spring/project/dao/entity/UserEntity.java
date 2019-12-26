@@ -11,7 +11,9 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "User")
-public class UserEntity implements Serializable{
+@Cacheable
+public class UserEntity implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")

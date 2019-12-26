@@ -8,13 +8,13 @@ import java.util.List;
  */
 public interface IGenericDao<T extends Serializable> {
 
-	T findOne(final long id);
-
 	void create(final T entity);
-
-	void update(final T entity);
 
 	void delete(final T entity);
 
 	void deleteById(final long entityId);
+
+	T findOne(final long id);
+
+	void update(final T entity);
 }

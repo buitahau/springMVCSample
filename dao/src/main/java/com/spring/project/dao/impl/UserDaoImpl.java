@@ -14,6 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserDaoImpl extends GenericHibernateDao<UserEntity>
                 implements UserDao {
 
+    public UserDaoImpl() {
+
+        super(UserEntity.class);
+    }
+
     public int countAll() {
 
         StringBuilder builder = new StringBuilder(
