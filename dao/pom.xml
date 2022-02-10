@@ -14,7 +14,7 @@
 
     <properties>
         <springframework-version>5.1.5.RELEASE</springframework-version>
-        <hibernate-core-version>5.4.10.Final</hibernate-core-version>
+        <hibernate-core-version>5.4.24.Final</hibernate-core-version>
     </properties>
 
     <dependencies>
